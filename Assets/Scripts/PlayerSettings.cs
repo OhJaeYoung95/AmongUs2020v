@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 컨트롤 타입
 public enum EControlType
 {
     Mouse,

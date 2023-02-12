@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class SettingsUI : MonoBehaviour
 {
     [SerializeField]
-    private Button MouseControlButton;
+    private Button MouseControlButton;              // 마우스 컨트롤 설정버튼
     [SerializeField]
-    private Button KeyboardMouseControlButton;
-    private Animator animator;
+    private Button KeyboardMouseControlButton;      // 키보드 + 마우스 컨트롤 설정버튼
+    private Animator animator;                      // 애니메이션
 
     private void Awake()
     {
@@ -18,6 +18,7 @@ public class SettingsUI : MonoBehaviour
 
     private void OnEnable()
     {
+        // 활성화시 컨트롤 타입에 따른 버튼 색 설정
         switch(PlayerSettings.controlType)
         {
             case EControlType.Mouse:
@@ -31,6 +32,7 @@ public class SettingsUI : MonoBehaviour
         }
     }
 
+    // 버튼 클릭에 따른 버튼 색 설정
     public void SetControlMode(int controlType)
     {
         PlayerSettings.controlType = (EControlType)controlType;
@@ -47,11 +49,13 @@ public class SettingsUI : MonoBehaviour
         }
     }
 
+    // UI 닫기
     public void Close()
     {
         StartCoroutine(CloseAfterDelay());
     }
 
+    // UI 닫기 애니메이션 설정
     private IEnumerator CloseAfterDelay()
     {
         animator.SetTrigger("close");
